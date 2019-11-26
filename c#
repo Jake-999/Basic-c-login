@@ -1,0 +1,92 @@
+using System;
+
+
+class MainClass {
+
+   public static string Username = "";
+    public static string Email = "";
+    public static string Password = "";
+  public static void Main () {
+    string account = "";
+    string Guest = "";
+    Random random = new Random();
+    Console.WriteLine("This is my attemp on creating a login script using just c#, to use it you must use y as yes and n as no, i have not finished it yet but am on my way to making it perfect, thank you for using this script and i hope u can give me advice in how to make it better");
+    Console.WriteLine("press y to start");
+    string y = Console.ReadLine();
+    if(y == "y"){
+    Console.WriteLine ("Do you want to create an account?");
+    account = Console.ReadLine();
+    if (account == "y"){
+      Console.WriteLine("To create an account you must provide some details to help personilise the account");
+      Console.WriteLine("Enter a username that you want to use");
+      Username = Console.ReadLine();
+      Console.WriteLine("Enter a vaild email");
+      Email = Console.ReadLine();
+      Console.WriteLine("Enter a strong password");
+      Password = Console.ReadLine();
+      Console.WriteLine("do you want to check your details");
+      string checkDetails = Console.ReadLine();
+      
+      if (checkDetails == "y"){
+        Console.WriteLine("Your chosen username is: " + Username);
+        Console.WriteLine("Your vaild email is: " + Email);
+        Console.WriteLine("Your chosen password is: " + Password);
+        Console.WriteLine("Do you want to login");
+       string i = Console.ReadLine();
+       if(i == "y"){
+         Login();
+       }
+       } else{
+         Console.WriteLine("Do you want to Login in");
+         string v = Console.ReadLine();
+         if(v =="y"){
+           Login();
+         }       
+      }
+    } else if (account != "y"){
+      Console.WriteLine("do you want to login with guest");
+      Guest = Console.ReadLine();
+      if (Guest == "y"){
+        Console.WriteLine("None of your progress will be saved");
+        Console.WriteLine("You are now logged in as a " + "Guest" + random.Next(1000, 9999));
+       return;
+        }
+     }
+   }
+  }
+  public static void Login(){
+    Console.WriteLine("Do you want to sign in");
+    string LoginBool = Console.ReadLine();
+    if (LoginBool == "y"){
+      Console.WriteLine("PLease enter your username");
+      string Username1 = Console.ReadLine();
+      if(Username1 == Username){
+        Console.WriteLine("PLease enter your email");
+        string Email1 = Console.ReadLine();
+        if(Email1 == Email){
+          Console.WriteLine("PLease enter your password");
+          string Password1 = Console.ReadLine();
+          if(Password1 == Password){
+            Console.WriteLine("Welcome " + Username);
+            return;
+          }else {
+            Console.WriteLine("you have entered the wrong password");
+            Console.WriteLine("Do you want to change your password?");
+            string e = Console.ReadLine();
+            if(e == "y"){
+              Console.WriteLine("We are going to send you an email to recreate your password");
+             return;
+            }
+          }
+        } else{
+          Console.WriteLine("you have entered the wrong email");
+          return;
+        }
+      }else {
+        Console.WriteLine("You have entered the wrong username");
+        return 61;
+      }
+    }
+  }
+}
+    
